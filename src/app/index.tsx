@@ -5,8 +5,11 @@ import {
   Modal,
   Platform,
   Pressable,
+  SafeAreaView,
+  StatusBar,
   StyleSheet,
   Text,
+  TouchableOpacity,
   View,
 } from "react-native";
 import LessonPath from "./components/LessonPath";
@@ -65,6 +68,54 @@ export default function HomeScreen() {
 
   return (
     <View style={styles.screen}>
+      {/* this is the top section */}
+      <SafeAreaView style={styles.container}>
+        <StatusBar barStyle="light-content" backgroundColor="#131f24" />
+
+        {/* --- DUOLINGO HEADER ZONE --- */}
+        <View style={styles.targetSection}>
+          {/* 1. TOP STATS BAR */}
+          <View style={styles.statsBar}>
+            {/* Flag Item */}
+            <View style={styles.statItem}>
+              <View style={styles.flagIcon}>
+                <Text style={{ fontSize: 10 }}>🔴</Text>
+              </View>
+              <Text style={[styles.statText, { color: "#fff" }]}>5</Text>
+            </View>
+
+            {/* Streak (Fire) */}
+            <View style={styles.statItem}>
+              <Text style={styles.emojiIcon}>🔥</Text>
+              <Text style={[styles.statText, { color: "#afafaf" }]}>214</Text>
+            </View>
+
+            {/* Gems */}
+            <View style={styles.statItem}>
+              <Text style={styles.emojiIcon}>💎</Text>
+              <Text style={[styles.statText, { color: "#49c0f8" }]}>875</Text>
+            </View>
+
+            {/* Energy */}
+            <View style={styles.statItem}>
+              <Text style={styles.emojiIcon}>⚡</Text>
+              <Text style={[styles.statText, { color: "#ff4b4b" }]}>25</Text>
+            </View>
+          </View>
+
+          {/* 2. GREEN BANNER CARD */}
+          <View style={styles.greenBanner}>
+            <View style={styles.bannerLeftContent}>
+              <Text style={styles.bannerSubTitle}>ETAPA 1, SECCIÓN 1</Text>
+              <Text style={styles.bannerTitle}>Pide comida y bebidas</Text>
+            </View>
+
+            <TouchableOpacity style={styles.menuIconButton}>
+              <Text style={styles.menuIconText}>📋</Text>
+            </TouchableOpacity>
+          </View>
+        </View>
+      </SafeAreaView>
       {/* this is the middle section */}
       <LessonPath />
       {/* this is the assignment alert button */}
@@ -280,6 +331,97 @@ const styles = StyleSheet.create({
     color: "white",
     fontSize: 18,
     fontWeight: "900",
+  },
+  container: {
+    flex: 1,
+    backgroundColor: "#131f24",
+  },
+  targetSection: {
+    paddingHorizontal: 16,
+    paddingTop: 10,
+    paddingBottom: 15,
+  },
+  statsBar: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "center",
+    marginBottom: 16,
+  },
+  statItem: {
+    flexDirection: "row",
+    alignItems: "center",
+    gap: 6,
+  },
+  flagIcon: {
+    backgroundColor: "#fff",
+    width: 22,
+    height: 16,
+    borderRadius: 4,
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  emojiIcon: {
+    fontSize: 18,
+  },
+  statText: {
+    fontSize: 16,
+    fontWeight: "bold",
+  },
+  greenBanner: {
+    backgroundColor: "#58cc02",
+    borderRadius: 16,
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "space-between",
+    paddingLeft: 16,
+    borderBottomWidth: 4,
+    borderBottomColor: "#46a302",
+    overflow: "hidden",
+  },
+  bannerLeftContent: {
+    flex: 1,
+    paddingVertical: 16,
+  },
+  bannerSubTitle: {
+    color: "#84d9ff",
+    fontWeight: "bold",
+    fontSize: 12,
+    marginBottom: 4,
+  },
+  bannerTitle: {
+    color: "#ffffff",
+    fontWeight: "bold",
+    fontSize: 18,
+  },
+  menuIconButton: {
+    backgroundColor: "#46a302",
+    height: "100%",
+    paddingHorizontal: 16,
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  menuIconText: {
+    fontSize: 22,
+    color: "#fff",
+  },
+  placeholderBody: {
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  placeholderText: {
+    color: "#3f4f56",
+    fontSize: 16,
+  },
+  buttonContainer: {
+    padding: 16,
+    backgroundColor: "#131f24",
+  },
+  buttonText: {
+    color: "#fff",
+    fontSize: 16,
+    fontWeight: "bold",
+    textTransform: "uppercase",
   },
 });
 
