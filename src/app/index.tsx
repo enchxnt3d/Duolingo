@@ -1,5 +1,3 @@
-import { StyleSheet, View } from "react-native";
-import LessonPath from "./components/LessonPath";
 import { useState } from "react";
 import {
   Alert,
@@ -11,14 +9,13 @@ import {
   Text,
   View,
 } from "react-native";
+import LessonPath from "./components/LessonPath";
 
 // these are only the icons I needed to customize more
 // the rest stayed as text icons so I dont overcomplicate the code
 
 function HomeIcon() {
   return (
-    <View style={styles.container}>
-      <LessonPath />
     <View style={iconStyles.homeWrapper}>
       <View style={iconStyles.homeRoof} />
       <View style={iconStyles.homeBody}>
@@ -68,12 +65,8 @@ export default function HomeScreen() {
 
   return (
     <View style={styles.screen}>
-      {/* this is just the middle space of the screen */}
-      <View style={styles.content}>
-        <Text style={styles.title}>Be ready later...</Text>
-        <Text style={styles.subtitle}>Test the buttons</Text>
-      </View>
-
+      {/* this is the middle section */}
+      <LessonPath />
       {/* this is the assignment alert button */}
       <Pressable style={styles.alertButton} onPress={showAlert}>
         <Text style={styles.alertButtonText}>Alert</Text>
@@ -124,7 +117,10 @@ export default function HomeScreen() {
               resizeMode="contain"
             />
 
-            <Pressable style={styles.closeButton} onPress={closeUnderConstruction}>
+            <Pressable
+              style={styles.closeButton}
+              onPress={closeUnderConstruction}
+            >
               <Text style={styles.closeButtonText}>Close</Text>
             </Pressable>
           </View>
