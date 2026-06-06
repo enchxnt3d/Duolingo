@@ -3,11 +3,11 @@ import { StyleSheet, Text, View } from "react-native";
 function LessonButton({
   style,
   locked,
-  children,
+  chest,
 }: {
   style: object;
   locked?: boolean;
-  children?: React.ReactNode;
+  chest?: React.ReactNode;
 }) {
   return (
     <View style={[styles.lessonButtonContainer, style]}>
@@ -16,8 +16,8 @@ function LessonButton({
       />
 
       <View style={[styles.lessonCircle, locked && styles.lockedLessonCircle]}>
-        {children ? (
-          children
+        {chest ? (
+          chest
         ) : (
           <Text style={[styles.star, locked && styles.lockedStar]}>★</Text>
         )}
@@ -45,9 +45,7 @@ export default function LessonPath() {
     <View style={styles.pathContainer}>
       <LessonButton style={styles.lessonOne} />
       <LessonButton style={styles.lessonTwo} />
-      <LessonButton style={styles.lessonThree} locked>
-        <ChestIcon />
-      </LessonButton>
+      <LessonButton style={styles.lessonThree} locked chest={<ChestIcon />} />
       <LessonButton style={styles.lessonFour} locked />
       <LessonButton style={styles.lessonFive} locked />
     </View>
