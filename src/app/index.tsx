@@ -1,3 +1,5 @@
+import { StyleSheet, View } from "react-native";
+import LessonPath from "./components/LessonPath";
 import { useState } from "react";
 import {
   Alert,
@@ -15,6 +17,8 @@ import {
 
 function HomeIcon() {
   return (
+    <View style={styles.container}>
+      <LessonPath />
     <View style={iconStyles.homeWrapper}>
       <View style={iconStyles.homeRoof} />
       <View style={iconStyles.homeBody}>
